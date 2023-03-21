@@ -19,6 +19,7 @@ int main(int argc, char *argv[]) {
   int sequence[sequenceLength];
   int i;
 
+  printf("A quantidade de elementos da sequencia randomica deve acompanhar a invocacao do executavel no terminal\n");
   printf("Sua sequencia aleatoria contara com %d numeros\n\n", sequenceLength);
   
   srand(sequenceLength);

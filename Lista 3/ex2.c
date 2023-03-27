@@ -30,13 +30,21 @@ int parser (char *c) {
     i++;    
   }
 
-  return empty(s); //If the stack is empty will return 1 (true)
+  if(empty(s)) {
+    destroy(s);
+    return 1;
+  }
+  else {
+    destroy(s);
+    return 0;
+  }
+
 }
 
 int main () {
 
-  // char *c = "( ( ) [ ( ) ] )";
-  char *c = "( [ ) ]";
+  char *c = "( ( ) [ ( ) ] )";
+  // char *c = "( [ ) ]";
   //char *c = "( ) [ ]";
   //char *c = "( [ ]";
   // char *c = ") (";

@@ -1,0 +1,16 @@
+Seria possível utilizar uma única estrutura de pilha para simular duas, dentro das condições estabelecidas.
+
+Para alcançar o objetivo, seria inicialmente necessário modificar a Struct Stack, visto que então
+precisariamos de dois ponteiros, um para cada pico de suas respectivas pilhas. Ademais, seria necessário
+modificar a lógica de funcionamento de alguns dos métodos.
+
+Podemos imaginas que as duas pilhas contidas seriam a e b. A teria início no índice 0 enquanto b teria
+início no último índice do array. a seria empilhada com o acrescimo do indíce do array enquanto b o seria
+pelo decrescimo desse índice. Ademais, seria necessário criar métodos separados para tratar das operações
+de pop, push, empty, full e print para cada uma das pilhas.
+
+
+/** References
+
+https://www.geeksforgeeks.org/implement-two-stacks-in-an-array/
+https://www.youtube.com/watch?v=vosFtc4Jse8&ab_channel=TutorialsPoint

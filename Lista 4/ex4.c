@@ -26,6 +26,7 @@ int main() {
 
   print(l);
   printf("A lista possui %d elementos!\n", size(l));
+  destroy(l);
 
   return 0;
 }

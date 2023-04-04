@@ -4,13 +4,19 @@
 
 /* 
   This function receives a lista l and return the
-  sum of its elements. This sum is made through recursion
+  sum of its elements. This sum is made through recursion.
+  In this sense the idea here to is call the sum function
+  multiple times
  */
-int sum (List *l) {
+int sum(List *l) {
   
+  if(l != NULL) {
+    return l->data + sum(l->next);
+  }
+
 }
 
-int main () {
+int main() {
 
   List *l = NULL;
   int k;

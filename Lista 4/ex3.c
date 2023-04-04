@@ -11,14 +11,39 @@
 */
 List* merge(List *A, List *B){
 
-  List *C;
-  List *t;
+  List *C = NULL;
+  List *tail = NULL;
+  List *head = NULL;
+  List *helper = NULL;
 
-  int lowest = A->data;
-  for(t=A; t!=NULL; t=t->next) {
-    printf("%d\n", t->data);
+  /* 'Copying' A to C */
+  C = A;
+
+  /* 'Copying' B to C*/
+  tail = A;
+  while(tail->next != NULL) {
+    tail =  tail->next;
   }
-  print(t);
+  tail->next = B;
+  /* ------- */
+
+  /* Now that we have it all set, we can perfom a sort*/
+  /* 
+    The complexity here is O(n^2) - There are certainly more effecient ways to solve this,
+    however, this was, as per the time of solving this exercise, this was the only implementation that worked
+  */
+  int temp;
+  for(head=C; head!=NULL; head=head->next) {
+    for(helper=head->next; helper!=NULL; helper=helper->next){
+      if(head->data > helper->data) {
+        temp = head->data;
+        head->data = helper->data;
+        helper->data = temp;
+      }
+    }
+  }
+  
+  return C;
 }
 
 int main () {
@@ -37,7 +62,8 @@ int main () {
 
   List *C = merge (A, B);
 
-  print (C);
+  print(C);
+
   destroy (C);
 
   return 0;

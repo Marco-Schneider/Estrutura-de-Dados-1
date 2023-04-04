@@ -13,6 +13,9 @@ int sum(List *l) {
   if(l != NULL) {
     return l->data + sum(l->next);
   }
+  else {
+    return 0;
+  }
 
 }
 

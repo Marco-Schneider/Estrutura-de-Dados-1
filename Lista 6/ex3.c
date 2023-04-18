@@ -9,7 +9,9 @@ List *create_circular(List *head) {
   }
 
   List *tail = head;
-  for(tail=head; tail->next != NULL; tail->next) { }
+  while(tail->next != NULL) { 
+    tail = tail->next;
+  }
 
   tail->next = head;
   head->prev = tail;

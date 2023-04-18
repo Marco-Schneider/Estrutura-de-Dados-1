@@ -1,0 +1,30 @@
+List* mist´erio (List *l, int elem) {
+  Lista *no = search (lista, elem);
+  if (no == NULL) { return lista; }
+  if (lista == no) { lista = no->next; }
+  if (no->next != NULL) { no->next->prev = no->prev; }
+  if (no->prev != NULL) { no->prev->next = no->next; }
+  free(no)
+  return l;
+}
+
+
+Essa função basicamente busca em elemento e na lista e, caso ele ocorra, o remove da lista. Do contrário retorna a própria lista
+
+A função search retorna um ponteiro para a posição do elemento caso ele ocorre na lista procurada.
+Assim, caso o elemento procurado não ocorra na lista, entramos no primeiro if e a função retorna a própria lista.
+
+Caso então o elemento ocorra em lista, o no recebera um ponteiro para esse elemento. Checa-se então se o ponteiro
+no é igual ao ponteiro que aponta para a cabeça de lista, ou seja, o primeiro da lista. Caso isso ocorra, fazemos
+com que lista passe então a apontar para no->next, o próximo elemento.
+
+As duas últimas condições são responsáveis por efetivamente retirar o element que está em no e costurar novamente a lista.
+Imagine-se o seguinte cenário
+
+|1|2|3|
+
+Em que estamos procurando se 2 ocorre na lista. 2 ocorre na segunda posição, então no apontará para lá. Nesse caso não
+entramos nos dois primeiros ifs. No terceiro, chegamos se o próximo elemento de no é nulo (se no aponta para o último elemento de lista).
+O que não é o caso, assim, (no->next)->prev = no->prev efetivamente está linkando |3| com |1|
+[no->prev aponta para |1| enquanto (no->next)->prev estã apontando para |2|]
+De maneira semelhante faz-se a conexão de |1| com |3|

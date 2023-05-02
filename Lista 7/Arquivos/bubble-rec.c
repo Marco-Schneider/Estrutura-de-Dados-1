@@ -1,8 +1,20 @@
 #include "utils.h"
 
-/* */
 void bubble_sort_recursive (int *A, int n) {
-  /*Terminar*/	
+  
+  int j;
+
+  if(n > 0){
+    for(j=0; j< n - 1; j++) {
+      if(A[j] > A[j + 1]) {
+        int temp = A[j + 1];
+        A[j + 1] = A[j];
+        A[j] = temp;
+      }
+    }
+    bubble_sort_recursive(A, n - 1);
+  }
+
 }
 
 /* */

@@ -4,16 +4,20 @@
 /* */
 void selection_sort (int *A, int n) {
 
-  for(int i=0; i<n; i++) {
-    int minimum;
-    for(int j=i+1; j<=n-1; j++) {
-      if(A[j] < A[i]) {
-        minimum = A[j];
-        A[j] = A[i];
-        A[i] = minimum;
+  for (int i = 0; i < n - 1; i++) {
+    int minimum = i;
+    for (int j = i + 1; j < n; j++) {
+      if (A[j] < A[minimum]) {
+        minimum = j;
       }
     }
+    if (minimum != i) {
+      int temp = A[i];
+      A[i] = A[minimum];
+      A[minimum] = temp;
+    }
   }
+  
 }
 
 /* */

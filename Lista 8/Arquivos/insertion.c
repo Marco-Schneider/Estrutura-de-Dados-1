@@ -2,7 +2,15 @@
 
 /* */
 void insertion_sort (int *A, int n) {
-  /*Terminar*/	
+  for (int i = 1; i < n; i++) {
+    int key = A[i];
+    int j = i - 1;
+    while (j >= 0 && A[j] > key) {
+      A[j + 1] = A[j];
+      j--;
+    }
+    A[j + 1] = key;
+  }
 }
 
 /* */
@@ -27,9 +35,9 @@ int main (int argc, char *argv[]) {
   }  
 
   start = clock();
-  print (A, n, "Input");
+  // print (A, n, "Input");
   insertion_sort (A, n);
-  print (A, n, "Sorted");
+  // print (A, n, "Sorted");
   end = clock();
   elapsed_time = (end - start)/(double)CLOCKS_PER_SEC;
   printf("Running time: %.2f\n", elapsed_time);

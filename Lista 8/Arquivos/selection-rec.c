@@ -2,7 +2,15 @@
 
 /* */
 void selection_sort_recursive (int *A, int n) {
-  /*Terminar*/	
+  if (n <= 1)
+    return;
+  int min_idx = 0;
+  for (int i = 1; i < n; i++) {
+    if (A[i] > A[min_idx])
+      min_idx = i;
+  }
+  swap(A, min_idx, n - 1);
+  selection_sort_recursive(A, n - 1);
 }
 
 /* */

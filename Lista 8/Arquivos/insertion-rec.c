@@ -2,7 +2,16 @@
 
 /* */
 void insertion_sort_recursive (int *A, int n) {
-  /*Terminar*/	
+  if (n <= 1)
+    return;
+  insertion_sort_recursive(A, n - 1);
+  int key = A[n - 1];
+  int j = n - 2;
+  while (j >= 0 && A[j] > key) {
+    A[j + 1] = A[j];
+    j--;
+  }
+  A[j + 1] = key;	
 }
 
 /* */

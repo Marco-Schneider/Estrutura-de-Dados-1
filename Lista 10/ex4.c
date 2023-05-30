@@ -1,4 +1,4 @@
-#include "utils.h"
+#include "Arquivos/utils.h"
 
 /*Função para intercalar dois subvetores em um conjunto ordenado. 
  *{A} é o vetor de entrada, {l} é a esquerda (de left), 

@@ -1,0 +1,2 @@
+A complexidade do merge-sort é n*log(n) para o melhor e o pior caso, nesse sentido, não há
+uma configuração em que o algortimo funcione mais rápido, conforme evidenciado também pelos testes

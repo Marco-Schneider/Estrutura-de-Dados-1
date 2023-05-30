@@ -4,11 +4,20 @@
 int* process_interval (int *A, int n, int range) {
   int i, j;
   int *C = (int *)malloc((range+1) * sizeof(int)); /*contador*/
-  /*Terminar*/
+  for(int i=0; i <=range; i++) {
+    C[i] = 0;
+  }
+  for(int j=0; j <= n-1; j++) {
+    C[A[j]] = C[A[j]] + 1;
+  }
+  for(int i=1; i<= range; i++) {
+    C[i] = C[i] + C[i-1];
+  }
+  return C;
 }
 
-int query (int *C, int n, int i, int j) {
-  /*Terminar*/
+int query (int *C, int n, int a, int b) {
+  return a != 0 ? C[b] - C[a - 1] : C[b];
 }
 
 /* */

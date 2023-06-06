@@ -1,0 +1,6 @@
+O algoritmo counting_sort é estável, ou seja, a ordem relativa dos elementos é preservada quando da ordenação
+
+O counting sort tem o seu melhor caso como sendo O(n) e o seu pior caso como O(n+k)
+
+Como visto, o pior caso do counting_sort é O(k+n), assim caso o intervalo entre o menor e o maior valor seja
+muito grande, o desempenho do counting sort é extremamente prejudicado

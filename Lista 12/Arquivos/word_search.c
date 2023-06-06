@@ -4,21 +4,55 @@
 
 /* */
 int linear_search (char **words, int n, char *key) {
+  int middle = (n-1)/2;
   for(int i=0; i<n; i++) {
     if(strcmp(words[i], key) == 0) {
       return i;
     }
   }
+  return -1;
 }
 
 /* */
 int binary_search_iterative (char **words, int n, char *key) {
-  /*Terminar*/
+  int left = 0, right = n-1;
+  int middle;
+
+  while(left<=right) {
+    middle = (left+right)/2;
+
+    int direction = strcmp(words[middle], key);
+
+    if(direction < 0) {
+      left = middle + 1;
+    }
+    else if(direction > 0) {
+      right = middle - 1;
+    }
+    else if(direction == 0) {
+      return middle;
+    }
+
+  }
+  return -1;
 }
 
 /* */
 int binary_search_recursive (char **words, int l, int r, char *key) {
-  /*Terminar*/
+  int middle = (l+r)/2;
+  if(l <= r) {
+    int direction = strcmp(words[middle], key);
+    if(direction == 0) {
+      return middle;
+    } 
+    else if(direction < 0) {
+      return binary_search_recursive(words, middle+1, r, key);
+    } 
+    else {
+      return binary_search_recursive(words, l, middle-1, key);
+    }
+  }
+  return -1;
 }
 
 /* */

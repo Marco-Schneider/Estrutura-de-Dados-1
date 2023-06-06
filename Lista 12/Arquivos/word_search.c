@@ -4,7 +4,11 @@
 
 /* */
 int linear_search (char **words, int n, char *key) {
-  /*Terminar*/
+  for(int i=0; i<n; i++) {
+    if(strcmp(words[i], key) == 0) {
+      return i;
+    }
+  }
 }
 
 /* */

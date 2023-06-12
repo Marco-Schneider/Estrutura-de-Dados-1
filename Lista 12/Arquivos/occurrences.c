@@ -2,12 +2,34 @@
 
 /* */
 int binary_search (int *A, int n, int key, int explore_left) {
-  /*Terminar*/	
+  int left = 0, right = n - 1;
+  int result = -1;
+  while (left <= right) {
+    int middle = left + (right - left) / 2;
+    if (A[middle] == key) {
+      result = middle;
+      if (explore_left) {
+        right = middle - 1;
+      } else {
+        left = middle + 1;
+      }
+    } else if (A[middle] < key) {
+      left = middle + 1;
+    } else {
+      right = middle - 1;
+    }
+  }
+  return result;
 }
 
 /* */
 int find_occurrences (int *A, int n, int target) {
-  /*Terminar*/	
+  int first = binary_search(A, n, target, 1);
+  if (first == -1) {
+    return 0;
+  }
+  int last = binary_search(A, n, target, 0);
+  return last - first + 1;	
 }
 
 /* */

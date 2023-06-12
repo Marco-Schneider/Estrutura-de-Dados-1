@@ -1,0 +1,7 @@
+Busca linear:
+  Melhor caso: O(1) Elemento buscado está no início
+  Pior caso: O(n) é necessário percorrer todo o vetor para encontrar o elemento
+
+Busca binária
+  Melhor caso: O(1)
+  Pior caso: O(log n)
